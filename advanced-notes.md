@@ -103,9 +103,11 @@ You'll also need to adjust the dropdown so that it does the same thing for displ
 
 Finally, say you wanted to do something really cool and make it look like as you were going down the page, you were also going down in depth ... 
 
-This is where you can use the cylcle command like such
+This is where you can [use the cycle command](https://shopify.github.io/liquid/tags/iteration/#cycle) like such
 
 `<tr id="{{ year }}" style='background-color: {% cycle "#FFFFFF","#E7E6DD","#B9B8B1","#94938E","#767672","#5E5E5B","#4B4B49","#3C3C3A","#30302E","#262625","#1E1E1E","Black"%}''>`
+
+#### Change Timeline to Words Rather than Numbers
 
 What if you don't want to do depth, or you have something else ... 
 
