@@ -4,15 +4,32 @@ Download and open the the repository on my computer
 
 ## Edit home-infographic.html
 
-change locations card to item_information
-Move description
-delete subjects
+- Maybe locations aren't that important to this collection, but you think material type is. Let's change the locations card on the front page to feature item_information
 
-More on bootstrap grid --> https://getbootstrap.com/docs/4.5/layout/grid/
+- Let's move the description into the narrow row. 
 
-## Add timlinejs
+- Now let's delete the subjects card. 
 
-To add the timeline feature to the front page, you'll need to open "home-infographic.html" in the _layouts directory and add the below: 
+Here's how that should look:
+
+```
+ <div class="col-md-4">  
+    {% include index/description.html %}
+
+    {% include index/time.html %}
+
+    {% include index/featured-terms.html field="item_information" title="Material Type" btn-color="outline-secondary"  max=6 %}
+
+    {% include index/objects.html %}
+
+  </div>
+```
+
+The home-infographic layout, and all pages in CollectionBuilder are styled using bootstrap, particularly using its grid feature. More on bootstrap grid --> https://getbootstrap.com/docs/4.5/layout/grid/
+
+## Add TimlineJS Feature
+
+To add the timeline feature to the front page, you'll need to edit "home-infographic.html" in the _layouts directory by adding the below: 
 
 ```
   <div class="col-md-12">
@@ -135,7 +152,7 @@ This is where you can [use the cycle command](https://shopify.github.io/liquid/t
 
 `<tr id="{{ year }}" style='background-color: {% cycle "#FFFFFF","#E7E6DD","#B9B8B1","#94938E","#767672","#5E5E5B","#4B4B49","#3C3C3A","#30302E","#262625","#1E1E1E","Black"%}''>`
 
-#### Change Timeline Visualization to Include Words Rather than Numbers
+## Change Timeline Visualization to Include Words Rather than Numbers
 
 What if you don't want to do depth, or you have something else ... 
 
