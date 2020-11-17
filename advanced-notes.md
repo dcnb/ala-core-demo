@@ -13,7 +13,17 @@ Download and open the the repository on my computer
 Here's how that should look:
 
 ```
- <div class="col-md-4">  
+ ---
+layout: page
+---
+{%- assign items = site.data[site.metadata] -%}
+<div class="row">
+  <div class="col-md-8">
+
+    {% include index/carousel.html %}
+  
+  </div>
+  <div class="col-md-4">  
     {% include index/description.html %}
 
     {% include index/time.html %}
@@ -23,6 +33,12 @@ Here's how that should look:
     {% include index/objects.html %}
 
   </div>
+  <div class="col-md-12">
+
+    {% include index/data-download.html %}
+
+  </div>
+</div>
 ```
 
 The home-infographic layout, and all pages in CollectionBuilder are styled using bootstrap, particularly using its grid feature. More on bootstrap grid --> https://getbootstrap.com/docs/4.5/layout/grid/
