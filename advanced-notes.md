@@ -1,14 +1,16 @@
 # Advanced Topics Step Thru
 
-Download and open the the repository on my computer
+These steps will take you through editing the home page, adding a TimelineJS Feature, and then editing the Timeline visualization to accommodate other data than years. 
 
 ## Edit home-infographic.html
 
-- Maybe locations aren't that important to this collection, but you think material type is. Let's change the locations card on the front page to feature item_information
+The **home-infographic.html** file in the _layouts folder controls what features appear in your front page. Once you open that file, you'll see a number of ["include" commands](https://jekyllrb.com/docs/includes/) that port in different features into the home page. 
 
-- Let's move the description into the narrow row. 
+- Maybe locations aren't that important to this collection, but you think material type, aka item_information, is. Let's change the locations card on the front page to feature item_information and change the title of that card to reflect the change. 
 
-- Now let's delete the subjects card. 
+- And we need to make room for a larger carousel, so let's move the description into the narrow row. 
+
+- And let's delete the subjects card for now, just to focus on the material type. 
 
 Here's how that should look:
 
@@ -43,6 +45,19 @@ layout: page
 
 The home-infographic layout, and all pages in CollectionBuilder are styled using bootstrap, particularly using its grid feature. More on bootstrap grid --> https://getbootstrap.com/docs/4.5/layout/grid/
 
+## Open Up the Repository on Your Desktop
+
+This step requires your [downloading some software](https://collectionbuilder.github.io/docs/software.html) and working on your computer. However, all the steps below can also be accomplished via the web interface. I'm just using my own computer to show the changes more quickly. 
+
+At base, if you can download Git, GitHub Desktop, and Visual Studio Code (all are easy to install), you can at least edit your files and push them to your repository. If you want to see your changes on a test server before pushing them, you'll need to install Ruby and Jekyll. 
+
+*Note on Using Ruby/Jekyll via the Commandline*
+
+To start a Jekyll server, the typical command is `jekyll s`. If you start working in this way, you will get used to that command. However, you'll also run into issues where the "gems" loaded when you load Jekyll might be out of step with the gems you have installed on your computer. This will cause error messages in the timeline. There are a couple of ways to remedy this issue: 
+
+1. Type `bundle exec jekyll s` -- bunlder handles all your gems, and by typing the jekyll command this way, bundler will make sure to operate within the paremeters defined by the repository you're working in. 
+2. Type `bundle update` -- this will update the gems on your computer to match the gems in the repository. If you haven't updated your gems in a while, this is a good thing to type. It will most likely fix your problem, after which you can simply type `jekyll s` again and move forward. 
+
 ## Add TimlineJS Feature
 
 To add the timeline feature to the front page, you'll need to edit "home-infographic.html" in the _layouts directory by adding the below: 
@@ -59,19 +74,19 @@ This creates a full width div that will include the code to display a timelinejs
 
 More detail on this is on our documentation page: [https://collectionbuilder.github.io/docs/advanced.html#timelinejs](https://collectionbuilder.github.io/docs/advanced.html#timelinejs)
 
-Look at the JSON object and see how various pieces are being constructed. 
-
 ## Curate TimelineJS Items
 
 You probably don't want the whole collection included, so you'll want to edit that. To do that, you need to edit the **timelinejs.json** file in the **/assets/data/** folder. 
 
+Look at the JSON object and see how various pieces are being constructed. You can adjust the title media and text portions to style the first slide of your timeline. 
+
 At the top, you can adjust what's included by defining which items are included in the array that is generating the json object below. To do that, you'll use "where" expressions, which are part of the liquid filtering mechanism in jekyll. 
+
+### Filter timeline objects using where and where_exp
 
 There are two types of where expresions. [The Basic "where:"](https://shopify.github.io/liquid/filters/where/) and [the more powerful where_exp](https://jekyllrb.com/docs/liquid/filters/#where-expression)
 
 (These are liquid expressions. You can see a cheatsheet of those here: https://learn.cloudcannon.com/jekyll-cheat-sheet/)
-
-### Filter timeline objects using where and where_exp
 
 So let's do a few ... 
 
@@ -93,7 +108,7 @@ So let's do a few ...
 
 See the advanced topic documentation for other ways to include timelines, including in place of timeline page and as an additional page. 
 
-operators: <https://shopify.github.io/liquid/basics/operators/>
+### [Liquid Operators](https://shopify.github.io/liquid/basics/operators/)
 
 | == | equals
 | != does not equal
@@ -105,11 +120,12 @@ operators: <https://shopify.github.io/liquid/basics/operators/>
 | and | logical and
 
 
-## Move to Watkins Collection
+## Change from the Psychiana to the Watkins Collection
 
-1. Shut down server. 
+1. If you're working on your own computer, shut down the server by clicking CTRL + C in the terminal.
 2. Download [Watkins metadata](https://docs.google.com/spreadsheets/u/1/d/1mThECwBYaUdvUrSbc9d2wbjedpYyvVD89jJ15R-7Qmo/edit?usp=sharing). 
 3. Change _config.yml metadata variable to watkins. 
+4. Restart server by typing `jekyll s` or `bundle exec jekyll s`
 
 All items in this collection are from 1890, and we don't have months, so .... 
 
